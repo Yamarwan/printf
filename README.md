@@ -1,31 +1,51 @@
-printf with myself with no one 
-int printf ( const char * format, ... );
+# printf
+# Description
+ C is a  programming language, printf() function is used to print the “character, string, float, integer, octal and hexadecimal values” onto the output screen.
 
-This function is part of the standard library **<cstdio>** and to use it we must specify the header file **<stdio.h>**.
+The available convertion specifiers are:
 
-Writes the C string pointed by format to the standard output **(stdout)**. If format includes format specifiers (subsequences beginning with **%**), the additional arguments following format are formatted and inserted in the resulting string replacing their respective specifiers.
-### Parameters
- > **format** -> C string that contains the text to be written to stdout.
- 
-Where the specifier character at the end is the most significant component, since it defines the type and the interpretation of its corresponding argument:
- Specifier | Output | Example
------------- | ------------- |-----------
- c | Character | A
- s | String of characters | Holberton
- % | A % followed by another % character will write a single % to the stream| %
-  i and d | Signed decimal integer | 98 
- b | Unsigned binary | 10101
- u | Unsigned decimal integer | 98
- o | Unsigned octal | 5523
- x | Unsigned hexadecimal integer (lowercase) | 36264eb
- X | Unsigned hexadecimal integer (uppercase) | 36264EB
- r | Reversed string | gnirts |
- R | Rot13 string | cevags
-##### Return Value.
-On **success**, the **total number** of characters written is returned.
-If a writing error occurs, the error indicator (ferror) is set and a negative number is returned.
- 
-## The tasks.
--[x] **I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life.** 
-Write a function that produces output according to a format.
+%c: Prints a single character.
+%s: Prints a string of characters.
+%d: Prints integers.
+%i: Prints integers.
+%b: Prints the binary representation of an unsigned decimal.
+%u: Prints unsigned integers
+%p: Prints address of pointer
+%x: Prints the hexadecial representation of an unsigned decimal in lowercase letters
+%X:Prints the hexadecial representation of an unsigned decimal in uppercase letters
+%r: Prints a reversed string
+%R: Prints the Rot13 interpretation of a string
+Usage
+All the files are to be compiled on Ubuntu 14.04 LTS
+Compile your code with gcc -Wall -Werror -Wextra -pedantic *.c
+Include the "main.h" header file on the functions using the _printf()
+Create a file (main.c) with below contend
+Example
+#include "main.h"
+#include <stdio.h>
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
 
+int main(void)
+{
+	int a;
+	int b;
+	char *str;
+
+	str = "school";
+	a = _printf("%r\n", "hello"); /*expected: notrebloh*/
+	printf("--->%d\n", a); /*expected: 10*/
+
+	b = _printf("%r\n", str); /*expected: loohcs*/
+	printf("%d\n", b); /*expected: 7*/
+
+	b = _printf("%r\n", str); /*expected: loohcs*/
+	printf("%d\n", b); /*expected: 7*/
+	return (0);
+}
+
+# Authors:
+Marouane yaqine
